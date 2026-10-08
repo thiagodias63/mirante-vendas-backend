@@ -1,0 +1,35 @@
+Vendas.Tests/Application/AtualizarVendaCommandHandlerTests.cs
+  s_2c283fc1f0a586::t_bacf3f8b11c793 1-67
+Vendas.Tests/Application/ObterVendaPorIdQueryHandlerTests.cs
+  s_2c283fc1f0a586::t_bacf3f8b11c793 1-34
+Vendas.Tests/Application/RegistrarVendaServiceTests.cs
+  s_2c283fc1f0a586::t_bacf3f8b11c793 1-43
+Vendas.Tests/Application/RemoverVendaCommandHandlerTests.cs
+  s_2c283fc1f0a586::t_bacf3f8b11c793 1-39
+Vendas.Tests/TestDoubles/FakeUnitOfWork.cs
+  s_2c283fc1f0a586::t_bacf3f8b11c793 1-14
+Vendas.Tests/TestDoubles/FakeVendaRepository.cs
+  s_2c283fc1f0a586::t_bacf3f8b11c793 1-45
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "base_commit_sha": "0a59a29180c27e4ce32310c72269d9c219500f21",
+  "prompts": {},
+  "sessions": {
+    "s_2c283fc1f0a586": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a11c83-1357-7200-8b99-ab5197cf1ac0",
+        "model": "gpt-6-luna"
+      },
+      "human_author": "thiago.diasbittencourt-ext@ab-inbev.com",
+      "custom_attributes": {
+        "input_tokens": "7925813",
+        "output_tokens": "45097",
+        "cache_read_input_tokens": "7657216",
+        "operation_input_tokens": "7925813",
+        "operation_output_tokens": "45097"
+      }
+    }
+  }
+}
