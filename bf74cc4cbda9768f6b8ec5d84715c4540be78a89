@@ -1,0 +1,43 @@
+Vendas.Api/Endpoints/VendasEndpoints.cs
+  s_2c283fc1f0a586::t_46d6961d03465e 2-3,13-47
+Vendas.Api/Program.cs
+  s_2c283fc1f0a586::t_46d6961d03465e 2,27-28
+Vendas.Api/Requests/ListarVendasRequest.cs
+  s_2c283fc1f0a586::t_46d6961d03465e 1-23
+Vendas.Api/Responses/ListarVendasResponse.cs
+  s_2c283fc1f0a586::t_46d6961d03465e 1-28
+Vendas.Application/Services/ListarVendaFilterBuilder.cs
+  s_2c283fc1f0a586::t_46d6961d03465e 1-80
+Vendas.Application/Services/ListarVendasQuery.cs
+  s_2c283fc1f0a586::t_46d6961d03465e 1-18
+Vendas.Application/Services/ListarVendasQueryHandler.cs
+  s_2c283fc1f0a586::t_46d6961d03465e 1-43
+Vendas.Application/Vendas.Application.csproj
+  s_2c283fc1f0a586::t_46d6961d03465e 11-12
+Vendas.Domain/Repositories/IVendaRepository.cs
+  s_2c283fc1f0a586::t_46d6961d03465e 1,9-16
+Vendas.Infrastructure/Repositories/VendaRepository.cs
+  s_2c283fc1f0a586::t_46d6961d03465e 1-2,21-62
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "base_commit_sha": "216da1df391ffe9bac25145156f96f3d3264dc1a",
+  "prompts": {},
+  "sessions": {
+    "s_2c283fc1f0a586": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a11c83-1357-7200-8b99-ab5197cf1ac0",
+        "model": "gpt-6-luna"
+      },
+      "human_author": "thiago.diasbittencourt-ext@ab-inbev.com",
+      "custom_attributes": {
+        "input_tokens": "2027119",
+        "output_tokens": "19405",
+        "cache_read_input_tokens": "1940992",
+        "operation_input_tokens": "2027119",
+        "operation_output_tokens": "19405"
+      }
+    }
+  }
+}
