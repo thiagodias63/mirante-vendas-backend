@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MediatR;
 using Vendas.Application.Validators;
 using Vendas.Api.Endpoints;
 using Vendas.Application.Services;
@@ -23,6 +24,8 @@ builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<RegistrarVendaService>();
 builder.Services.AddScoped<VendaValidator>();
+builder.Services.AddMediatR(configuration =>
+    configuration.RegisterServicesFromAssembly(typeof(ListarVendasQueryHandler).Assembly));
 
 var app = builder.Build();
 
