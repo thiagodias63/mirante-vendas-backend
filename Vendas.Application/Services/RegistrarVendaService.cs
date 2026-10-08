@@ -8,18 +8,15 @@ namespace Vendas.Application.Services;
 public class RegistrarVendaService
 {
     private readonly IVendaRepository _vendas;
-    private readonly IProdutoRepository _produtos;
     private readonly IUnitOfWork _unitOfWork;
     private readonly VendaValidator _validator;
 
     public RegistrarVendaService(
         IVendaRepository vendas,
-        IProdutoRepository produtos,
         IUnitOfWork unitOfWork,
         VendaValidator validator)
     {
         _vendas = vendas;
-        _produtos = produtos;
         _unitOfWork = unitOfWork;
         _validator = validator;
     }
@@ -40,23 +37,6 @@ public class RegistrarVendaService
             PrecoUnitario = precoUnitario,
             DataVenda = dataVenda
         };
-
-        var produto = await _produtos.GetByNameAsync(nomeProduto, cancellationToken);
-
-        if (produto is null)
-        {
-            produto = new Produto
-            {
-                Nome = nomeProduto,
-                TotalVendido = quantidade
-            };
-
-            await _produtos.AddAsync(produto, cancellationToken);
-        }
-        else
-        {
-            produto.TotalVendido += quantidade;
-        }
 
         await _vendas.AddAsync(venda, cancellationToken);
         await _unitOfWork.SaveChangesAsync(cancellationToken);

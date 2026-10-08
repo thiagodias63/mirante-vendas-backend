@@ -9,7 +9,6 @@ public class AppDbContext : DbContext
         : base(options) { }
 
     public DbSet<Venda> Vendas => Set<Venda>();
-    public DbSet<Produto> Produtos => Set<Produto>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -32,26 +31,6 @@ public class AppDbContext : DbContext
             entity.Property(v => v.DataVenda)
                 .HasColumnName("data_venda")
                 .HasColumnType("date");
-        });
-
-        modelBuilder.Entity<Produto>(entity =>
-        {
-            entity.ToTable("produtos");
-            entity.HasKey(p => p.IdProduto).HasName("PK_produtos");
-
-            entity.Property(p => p.IdProduto)
-                .HasColumnName("id_produto")
-                .UseIdentityByDefaultColumn();
-
-            entity.Property(p => p.Nome)
-                .HasColumnName("nome")
-                .HasMaxLength(200)
-                .IsRequired();
-
-            entity.Property(p => p.TotalVendido).HasColumnName("total_vendido");
-
-            // Um produto por nome; necessário para evitar duplicatas.
-            entity.HasIndex(p => p.Nome).IsUnique();
         });
     }
 

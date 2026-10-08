@@ -19,6 +19,16 @@ public class VendaRepository : IVendaRepository
         await _context.Vendas.AddAsync(venda, cancellationToken);
     }
 
+    public Task<Venda?> GetByIdAsync(
+        int idVenda,
+        CancellationToken cancellationToken = default)
+    {
+        return _context.Vendas
+            .SingleOrDefaultAsync(venda => venda.IdVenda == idVenda, cancellationToken);
+    }
+
+    public void Remove(Venda venda) => _context.Vendas.Remove(venda);
+
     public async Task<(IReadOnlyList<Venda> Vendas, int TotalItems)> ListarAsync(
         Expression<Func<Venda, bool>> filtro,
         string ordem,

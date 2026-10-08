@@ -10,6 +10,72 @@ public static class VendasEndpoints
     public static IEndpointRouteBuilder MapVendasEndpoints(
         this IEndpointRouteBuilder endpoints)
     {
+        endpoints.MapGet("/api/vendas/{idVenda:int}", async (
+            int idVenda,
+            ISender sender,
+            CancellationToken cancellationToken) =>
+        {
+            var venda = await sender.Send(new ObterVendaPorIdQuery(idVenda), cancellationToken);
+            return venda is null
+                ? Results.NotFound()
+                : Results.Ok(ListarVendasResponse.FromEntity(venda));
+        })
+        .WithName("ObterVendaPorId")
+        .WithTags("Vendas")
+        .WithSummary("Obtém uma venda pelo ID")
+        .Produces<ListarVendasResponse>(StatusCodes.Status200OK)
+        .Produces(StatusCodes.Status404NotFound);
+
+        endpoints.MapDelete("/api/vendas/{idVenda:int}", async (
+            int idVenda,
+            ISender sender,
+            CancellationToken cancellationToken) =>
+        {
+            var removida = await sender.Send(new RemoverVendaCommand(idVenda), cancellationToken);
+            return removida ? Results.NoContent() : Results.NotFound();
+        })
+        .WithName("RemoverVendaPorId")
+        .WithTags("Vendas")
+        .WithSummary("Remove uma venda pelo ID")
+        .Produces(StatusCodes.Status204NoContent)
+        .Produces(StatusCodes.Status404NotFound);
+
+        endpoints.MapPatch("/api/vendas/{idVenda:int}", async (
+            int idVenda,
+            AtualizarVendaRequest request,
+            ISender sender,
+            CancellationToken cancellationToken) =>
+        {
+            try
+            {
+                var venda = await sender.Send(request.ToCommand(idVenda), cancellationToken);
+                return venda is null
+                    ? Results.NotFound()
+                    : Results.Ok(ListarVendasResponse.FromEntity(venda));
+            }
+            catch (ArgumentException exception)
+            {
+                var campo = exception.ParamName switch
+                {
+                    "nomeProduto" => "produto",
+                    "quantidade" => "quantidade",
+                    _ => "request"
+                };
+
+                return Results.ValidationProblem(new Dictionary<string, string[]>
+                {
+                    [campo] = [exception.Message]
+                });
+            }
+        })
+        .WithName("AtualizarVendaPorId")
+        .WithTags("Vendas")
+        .WithSummary("Atualiza parcialmente uma venda pelo ID")
+        .WithDescription("Envie somente os campos que deseja alterar. A quantidade total vendida do produto também será ajustada.")
+        .Produces<ListarVendasResponse>(StatusCodes.Status200OK)
+        .Produces(StatusCodes.Status404NotFound)
+        .ProducesValidationProblem();
+
         endpoints.MapGet("/api/vendas", async (
             [AsParameters] ListarVendasRequest request,
             ISender sender,

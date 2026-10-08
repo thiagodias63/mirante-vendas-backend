@@ -74,6 +74,11 @@ public class ListarVendasQueryHandlerTests
         public Task AddAsync(Venda venda, CancellationToken cancellationToken = default) =>
             throw new NotSupportedException();
 
+        public Task<Venda?> GetByIdAsync(int idVenda, CancellationToken cancellationToken = default) =>
+            throw new NotSupportedException();
+
+        public void Remove(Venda venda) => throw new NotSupportedException();
+
         public Task<(IReadOnlyList<Venda> Vendas, int TotalItems)> ListarAsync(
             Expression<Func<Venda, bool>> filtro,
             string ordem,
