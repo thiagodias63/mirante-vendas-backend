@@ -1,0 +1,33 @@
+Vendas.Application/Services/ListarVendaFilterBuilder.cs
+  s_2c283fc1f0a586::t_45d12acaff38c1 14-15,21-23
+Vendas.Tests/Application/ListarVendaFilterBuilderTests.cs
+  s_2c283fc1f0a586::t_45d12acaff38c1 1-53
+Vendas.Tests/Application/ListarVendasQueryHandlerTests.cs
+  s_2c283fc1f0a586::t_45d12acaff38c1 1-91
+Vendas.Tests/Vendas.Tests.csproj
+  s_2c283fc1f0a586::t_45d12acaff38c1 1-24
+Vendas.slnx
+  s_2c283fc1f0a586::t_45d12acaff38c1 6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "base_commit_sha": "bf74cc4cbda9768f6b8ec5d84715c4540be78a89",
+  "prompts": {},
+  "sessions": {
+    "s_2c283fc1f0a586": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a11c83-1357-7200-8b99-ab5197cf1ac0",
+        "model": "gpt-6-luna"
+      },
+      "human_author": "thiago.diasbittencourt-ext@ab-inbev.com",
+      "custom_attributes": {
+        "input_tokens": "4291206",
+        "output_tokens": "30930",
+        "cache_read_input_tokens": "4071680",
+        "operation_input_tokens": "4291206",
+        "operation_output_tokens": "30930"
+      }
+    }
+  }
+}
