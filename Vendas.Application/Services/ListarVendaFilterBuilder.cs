@@ -1,5 +1,4 @@
 using System.Linq.Expressions;
-using Microsoft.EntityFrameworkCore;
 using Vendas.Domain.Entities;
 
 namespace Vendas.Application.Services;
@@ -12,17 +11,15 @@ public sealed class ListarVendaFilterBuilder
     {
         if (!string.IsNullOrWhiteSpace(produto))
         {
-            var pattern = produto.Trim().Replace("*", "%");
-            if (!pattern.Contains('%'))
-            {
-                pattern = $"%{pattern}%";
-            }
-
-            _filtros.Add(venda => EF.Functions.Like(venda.Produto, pattern));
+            var termo = ToProductSearchTerm(produto).ToUpperInvariant();
+            _filtros.Add(venda => venda.Produto.ToUpper().Contains(termo));
         }
 
         return this;
     }
+
+    public static string ToProductSearchTerm(string produto) =>
+        produto.Trim().Trim('*');
 
     public ListarVendaFilterBuilder FilterByQuantidade(int? quantidade)
     {
