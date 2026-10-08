@@ -1,0 +1,45 @@
+Vendas.Api/Endpoints/VendasEndpoints.cs
+  s_2c283fc1f0a586::t_a7331ed569a3f8 13-78
+Vendas.Api/Requests/AtualizarVendaRequest.cs
+  s_2c283fc1f0a586::t_a7331ed569a3f8 1-13
+Vendas.Application/Services/AtualizarVendaCommand.cs
+  s_2c283fc1f0a586::t_a7331ed569a3f8 1-11
+Vendas.Application/Services/AtualizarVendaCommandHandler.cs
+  s_2c283fc1f0a586::t_a7331ed569a3f8 1-43
+Vendas.Application/Services/ObterVendaPorIdQuery.cs
+  s_2c283fc1f0a586::t_a7331ed569a3f8 1-6
+Vendas.Application/Services/ObterVendaPorIdQueryHandler.cs
+  s_2c283fc1f0a586::t_a7331ed569a3f8 1-14
+Vendas.Application/Services/RemoverVendaCommand.cs
+  s_2c283fc1f0a586::t_a7331ed569a3f8 1-5
+Vendas.Application/Services/RemoverVendaCommandHandler.cs
+  s_2c283fc1f0a586::t_a7331ed569a3f8 1-24
+Vendas.Domain/Repositories/IVendaRepository.cs
+  s_2c283fc1f0a586::t_a7331ed569a3f8 10-13
+Vendas.Infrastructure/Repositories/VendaRepository.cs
+  s_2c283fc1f0a586::t_a7331ed569a3f8 22-31
+Vendas.Tests/Application/ListarVendasQueryHandlerTests.cs
+  s_2c283fc1f0a586::t_a7331ed569a3f8 77-81
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "base_commit_sha": "08886112a7b615a6b7919aae68125d7dd5b469af",
+  "prompts": {},
+  "sessions": {
+    "s_2c283fc1f0a586": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a11c83-1357-7200-8b99-ab5197cf1ac0",
+        "model": "gpt-6-luna"
+      },
+      "human_author": "thiago.diasbittencourt-ext@ab-inbev.com",
+      "custom_attributes": {
+        "input_tokens": "6889898",
+        "output_tokens": "41281",
+        "cache_read_input_tokens": "6635520",
+        "operation_input_tokens": "6889898",
+        "operation_output_tokens": "41281"
+      }
+    }
+  }
+}
