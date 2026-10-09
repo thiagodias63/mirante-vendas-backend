@@ -16,7 +16,7 @@ public class ListarVendasQueryHandlerTests
             IdVenda = 7,
             Produto = "camisa",
             Quantidade = 3,
-            DataVenda = new DateTime(2026, 10, 8)
+            DataVenda = new DateOnly(2026, 10, 8)
         };
         var repository = new FakeVendaRepository([venda], totalItems: 31);
         var handler = new ListarVendasQueryHandler(repository);

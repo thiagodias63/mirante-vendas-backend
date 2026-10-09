@@ -8,7 +8,7 @@ public sealed record ListarVendasResponse(
     string Produto,
     int Quantidade,
     int PrecoUnitario,
-    DateTime DataVenda)
+    DateOnly DataVenda)
 {
     public static ListarVendasResponse FromEntity(Venda venda) =>
         new(venda.IdVenda, venda.Produto, venda.Quantidade, venda.PrecoUnitario, venda.DataVenda);

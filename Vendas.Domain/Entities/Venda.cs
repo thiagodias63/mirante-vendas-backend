@@ -9,5 +9,5 @@ public class Venda
     public string Produto { get; set; } = string.Empty;
     public int Quantidade { get; set; }
     public int PrecoUnitario { get; set; }
-    public DateTime DataVenda { get; set; }
+    public DateOnly DataVenda { get; set; }
 }

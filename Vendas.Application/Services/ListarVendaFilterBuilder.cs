@@ -31,11 +31,11 @@ public sealed class ListarVendaFilterBuilder
         return this;
     }
 
-    public ListarVendaFilterBuilder FilterByDataVenda(DateTime? dataVenda)
+    public ListarVendaFilterBuilder FilterByDataVenda(DateOnly? dataVenda)
     {
         if (dataVenda.HasValue)
         {
-            var data = dataVenda.Value.Date;
+            var data = dataVenda.Value;
             _filtros.Add(venda => venda.DataVenda == data);
         }
 

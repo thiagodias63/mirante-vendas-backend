@@ -6,7 +6,7 @@ namespace Vendas.Application.Services;
 public sealed record ListarVendasQuery(
     string? Produto,
     int? Quantidade,
-    DateTime? DataVenda,
+    DateOnly? DataVenda,
     string Order,
     int Page,
     int Size) : IRequest<ListarVendasResult>;

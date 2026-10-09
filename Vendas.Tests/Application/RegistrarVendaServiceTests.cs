@@ -14,7 +14,7 @@ public class RegistrarVendaServiceTests
         var repository = new FakeVendaRepository();
         var unitOfWork = new FakeUnitOfWork();
         var service = new RegistrarVendaService(repository, unitOfWork, new VendaValidator());
-        var dataVenda = new DateTime(2026, 10, 8);
+        var dataVenda = new DateOnly(2026, 10, 8);
 
         await service.RegistrarAsync("camisa", 2, 150, dataVenda);
 
@@ -35,7 +35,7 @@ public class RegistrarVendaServiceTests
         var service = new RegistrarVendaService(repository, unitOfWork, new VendaValidator());
 
         await Assert.ThrowsAsync<ArgumentOutOfRangeException>(
-            () => service.RegistrarAsync("camisa", 0, 150, DateTime.Today));
+            () => service.RegistrarAsync("camisa", 0, 150, DateOnly.FromDateTime(DateTime.Today)));
 
         Assert.Equal(0, repository.ChamadasAdd);
         Assert.Equal(0, unitOfWork.ChamadasSaveChanges);

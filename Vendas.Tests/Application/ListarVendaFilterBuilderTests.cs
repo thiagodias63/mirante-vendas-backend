@@ -27,7 +27,7 @@ public class ListarVendaFilterBuilderTests
     [Fact]
     public void Build_WithQuantityAndDate_RequiresBothExactValues()
     {
-        var data = new DateTime(2026, 10, 8);
+        var data = new DateOnly(2026, 10, 8);
         var filtro = new ListarVendaFilterBuilder()
             .FilterByQuantidade(3)
             .FilterByDataVenda(data)

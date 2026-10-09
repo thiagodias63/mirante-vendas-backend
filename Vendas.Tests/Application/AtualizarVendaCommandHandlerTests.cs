@@ -11,7 +11,7 @@ public class AtualizarVendaCommandHandlerTests
     [Fact]
     public async Task Handle_UpdatesOnlyProvidedFieldsAndSaves()
     {
-        var dataOriginal = new DateTime(2026, 10, 7);
+        var dataOriginal = new DateOnly(2026, 10, 7);
         var venda = new Venda
         {
             IdVenda = 4,

@@ -7,7 +7,7 @@ public sealed class ListarVendasRequest
 {
     public string? Produto { get; init; }
     public int? Quantidade { get; init; }
-    public DateTime? DataVenda { get; init; }
+    public DateOnly? DataVenda { get; init; }
 
     [FromQuery(Name = "_order")]
     public string? Order { get; init; }

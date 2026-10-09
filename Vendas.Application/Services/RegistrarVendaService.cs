@@ -25,7 +25,7 @@ public class RegistrarVendaService
         string produto,
         int quantidade,
         int precoUnitario,
-        DateTime dataVenda,
+        DateOnly dataVenda,
         CancellationToken cancellationToken = default)
     {
         _validator.Validar(produto, quantidade);

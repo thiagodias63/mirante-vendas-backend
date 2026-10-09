@@ -8,4 +8,4 @@ public sealed record AtualizarVendaCommand(
     string? Produto,
     int? Quantidade,
     int? PrecoUnitario,
-    DateTime? DataVenda) : IRequest<Venda?>;
+    DateOnly? DataVenda) : IRequest<Venda?>;
