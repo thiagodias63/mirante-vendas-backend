@@ -2,13 +2,13 @@ namespace Vendas.Application.Validators;
 
 public sealed class VendaValidator
 {
-    public void Validar(string nomeProduto, int quantidade)
+    public void Validar(string produto, int quantidade)
     {
-        if (string.IsNullOrWhiteSpace(nomeProduto))
+        if (string.IsNullOrWhiteSpace(produto))
         {
             throw new ArgumentException(
                 "O nome do produto é obrigatório.",
-                nameof(nomeProduto));
+                nameof(produto));
         }
 
         if (quantidade <= 0)

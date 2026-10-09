@@ -66,13 +66,13 @@ dotnet test Vendas.slnx
 
 ## Endpoints
 
-| Método | Rota | Descrição |
-| --- | --- | --- |
-| `POST` | `/api/vendas` | Registra uma venda |
-| `GET` | `/api/vendas` | Lista vendas com filtros e paginação |
-| `GET` | `/api/vendas/{idVenda}` | Obtém uma venda pelo ID |
-| `PATCH` | `/api/vendas/{idVenda}` | Atualiza parcialmente uma venda |
-| `DELETE` | `/api/vendas/{idVenda}` | Remove uma venda |
+| Método   | Rota                    | Descrição                            |
+| -------- | ----------------------- | ------------------------------------ |
+| `POST`   | `/api/vendas`           | Registra uma venda                   |
+| `GET`    | `/api/vendas`           | Lista vendas com filtros e paginação |
+| `GET`    | `/api/vendas/{idVenda}` | Obtém uma venda pelo ID              |
+| `PATCH`  | `/api/vendas/{idVenda}` | Atualiza parcialmente uma venda      |
+| `DELETE` | `/api/vendas/{idVenda}` | Remove uma venda                     |
 
 ### Listar vendas
 
@@ -97,7 +97,7 @@ A resposta contém `data`, `page`, `size` e `totalItems`.
 
 ```json
 {
-  "nomeProduto": "camisa",
+  "produto": "camisa",
   "quantidade": 2,
   "precoUnitario": 150,
   "dataVenda": "2026-10-08"
@@ -116,10 +116,10 @@ Envie apenas os campos que deseja alterar:
 
 ## Estrutura da solução
 
-| Projeto | Responsabilidade |
-| --- | --- |
-| `Vendas.Api` | Endpoints HTTP, requests, respostas e inicialização da API |
-| `Vendas.Application` | Serviços, queries, handlers e filtros dos casos de uso |
-| `Vendas.Domain` | Entidades e contratos dos repositórios |
+| Projeto                 | Responsabilidade                                             |
+| ----------------------- | ------------------------------------------------------------ |
+| `Vendas.Api`            | Endpoints HTTP, requests, respostas e inicialização da API   |
+| `Vendas.Application`    | Serviços, queries, handlers e filtros dos casos de uso       |
+| `Vendas.Domain`         | Entidades e contratos dos repositórios                       |
 | `Vendas.Infrastructure` | Entity Framework Core, PostgreSQL, repositórios e migrations |
-| `Vendas.Tests` | Testes unitários xUnit |
+| `Vendas.Tests`          | Testes unitários xUnit                                       |

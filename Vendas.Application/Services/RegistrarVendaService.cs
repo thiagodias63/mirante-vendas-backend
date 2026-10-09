@@ -22,17 +22,17 @@ public class RegistrarVendaService
     }
 
     public async Task RegistrarAsync(
-        string nomeProduto,
+        string produto,
         int quantidade,
         int precoUnitario,
         DateTime dataVenda,
         CancellationToken cancellationToken = default)
     {
-        _validator.Validar(nomeProduto, quantidade);
+        _validator.Validar(produto, quantidade);
 
         var venda = new Venda
         {
-            Produto = nomeProduto,
+            Produto = produto,
             Quantidade = quantidade,
             PrecoUnitario = precoUnitario,
             DataVenda = dataVenda

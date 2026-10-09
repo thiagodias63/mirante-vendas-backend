@@ -57,7 +57,7 @@ public static class VendasEndpoints
             {
                 var campo = exception.ParamName switch
                 {
-                    "nomeProduto" => "produto",
+                    "produto" => "produto",
                     "quantidade" => "quantidade",
                     _ => "request"
                 };
@@ -119,7 +119,7 @@ public static class VendasEndpoints
             try
             {
                 await service.RegistrarAsync(
-                    request.NomeProduto,
+                    request.produto,
                     request.Quantidade,
                     request.PrecoUnitario,
                     request.DataVenda,
@@ -131,7 +131,7 @@ public static class VendasEndpoints
             {
                 var campo = exception.ParamName switch
                 {
-                    "nomeProduto" => "nomeProduto",
+                    "produto" => "produto",
                     "quantidade" => "quantidade",
                     _ => "request"
                 };
