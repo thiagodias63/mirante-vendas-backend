@@ -60,13 +60,29 @@ public class VendaRepository : IVendaRepository
         }
 
         var crescente = partes[1].Equals("asc", StringComparison.OrdinalIgnoreCase);
+        
         return partes[0].ToLowerInvariant() switch
         {
-            "produto" => crescente ? consulta.OrderBy(venda => venda.Produto) : consulta.OrderByDescending(venda => venda.Produto),
-            "quantidade" => crescente ? consulta.OrderBy(venda => venda.Quantidade) : consulta.OrderByDescending(venda => venda.Quantidade),
-            "datavenda" => crescente ? consulta.OrderBy(venda => venda.DataVenda) : consulta.OrderByDescending(venda => venda.DataVenda),
-            "precounitario" => crescente ? consulta.OrderBy(venda => venda.PrecoUnitario) : consulta.OrderByDescending(venda => venda.PrecoUnitario),
-            "idvenda" => crescente ? consulta.OrderBy(venda => venda.IdVenda) : consulta.OrderByDescending(venda => venda.IdVenda),
+            "produto" => crescente 
+                ? consulta.OrderBy(venda => venda.Produto).ThenBy(venda => venda.DataVenda) 
+                : consulta.OrderByDescending(venda => venda.Produto).ThenBy(venda => venda.DataVenda),
+                
+            "quantidade" => crescente 
+                ? consulta.OrderBy(venda => venda.Quantidade).ThenBy(venda => venda.DataVenda) 
+                : consulta.OrderByDescending(venda => venda.Quantidade).ThenBy(venda => venda.DataVenda),
+                
+            "datavenda" => crescente 
+                ? consulta.OrderBy(venda => venda.DataVenda) 
+                : consulta.OrderByDescending(venda => venda.DataVenda),
+                
+            "precounitario" => crescente 
+                ? consulta.OrderBy(venda => venda.PrecoUnitario).ThenBy(venda => venda.DataVenda) 
+                : consulta.OrderByDescending(venda => venda.PrecoUnitario).ThenBy(venda => venda.DataVenda),
+                
+            "idvenda" => crescente 
+                ? consulta.OrderBy(venda => venda.IdVenda).ThenBy(venda => venda.DataVenda) 
+                : consulta.OrderByDescending(venda => venda.IdVenda).ThenBy(venda => venda.DataVenda),
+                
             _ => throw new ArgumentException("Campo de ordenacao invalido. Use produto, quantidade, dataVenda, precoUnitario ou idVenda.", nameof(ordem))
         };
     }
