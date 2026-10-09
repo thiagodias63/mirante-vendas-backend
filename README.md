@@ -123,3 +123,16 @@ Envie apenas os campos que deseja alterar:
 | `Vendas.Domain`         | Entidades e contratos dos repositórios                       |
 | `Vendas.Infrastructure` | Entity Framework Core, PostgreSQL, repositórios e migrations |
 | `Vendas.Tests`          | Testes unitários xUnit                                       |
+
+## Melhorias futuras
+
+* **Validação com FluentValidation**
+
+  * Integrar o `FluentValidation` aos `CommandHandlers` para centralizar as regras de validação e manter a lógica de negócio mais organizada.
+
+* **Endpoints BFF para vendas agrupadas**
+
+  * Criar endpoints específicos para atender aos dados do gráfico e da tabela, separando as responsabilidades de consulta:
+
+    * `GET /bff/vendas-agrupadas:summary`: retornar dados sumarizados para a visualização do gráfico.
+    * `GET /bff/vendas-agrupadas:lookup`: retornar os dados detalhados para a tabela.
